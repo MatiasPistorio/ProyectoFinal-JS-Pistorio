@@ -1,4 +1,4 @@
-/* Estilos para la página */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -22,38 +22,28 @@ body {
     color: #555;
   }
   
-/* Estilos para la lista de productos */
+
 #product-list {
     list-style: none;
     padding: 0;
-    display: flex; /* Cambiamos la presentación a flexbox */
-    flex-wrap: wrap; /* Permitimos que las tarjetas se envuelvan cuando no haya suficiente espacio */
-    justify-content: space-between; /* Distribuye las tarjetas horizontalmente */
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
   }
   
   #product-list li {
-    flex: 0 0 calc(30% - 20px); /* Establecemos el ancho de las tarjetas y dejamos un pequeño espacio entre ellas */
+    flex: 0 0 calc(30% - 20px); 
     margin-bottom: 20px;
     padding: 10px;
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    /* Ajusta otros estilos según tus preferencias */
   }
   
-  /* Estilos para el contenido de las tarjetas */
   #product-list div {
     text-align: center;
   }
-  
-  /* Estilos para las imágenes */
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  
-  /* Estilos para el carrito de compras */
+
   #cart {
     list-style: none;
     padding: 0;
@@ -82,7 +72,6 @@ body {
     background-color: #d32f2f;
   }
   
-  /* Estilos para el botón de compra */
   #checkout {
     background-color: #4caf50;
     color: #fff;
@@ -95,18 +84,11 @@ body {
     background-color: #388e3c;
   }
   
-  /* Estilos para la información de compra */
   #purchase-info {
     margin-top: 20px;
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Estilos para imágenes */
-  img {
-    max-width: 100%;
-    height: auto;
   }
   

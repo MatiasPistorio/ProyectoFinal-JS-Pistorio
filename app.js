@@ -1,4 +1,4 @@
-const cart = []; // Array para almacenar productos en el carrito
+const cart = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   const cartList = document.getElementById('cart');
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const productItem = document.createElement('li');
       productItem.innerHTML = `
         <div>
-          <img src="${product.image}" alt="${product.name}" width="50">
           <h3>${product.name}</h3>
           <p>${product.description}</p>
           <p>$${product.price}</p>
@@ -45,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     totalQuantity += 1;
     totalPrice += product.price;
     updateCartUI();
-    saveCart(); // Guardar el carrito en el "localStorage" después de agregar un producto
+    saveCart(); 
   }
 
   function removeFromCart(index) {
@@ -54,12 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
     totalQuantity -= 1;
     totalPrice -= product.price;
     updateCartUI();
-    saveCart(); // Guardar el carrito en el "localStorage" después de eliminar un producto
+    saveCart(); 
   }
 
   function updateCartUI() {
     cartList.innerHTML = '';
-
+  
     cart.forEach((product, index) => {
       const cartItem = document.createElement('li');
       cartItem.textContent = `${product.name} - $${product.price}`;
@@ -69,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cartItem.appendChild(removeButton);
       cartList.appendChild(cartItem);
     });
-
-    // Actualizar el resumen del carrito
+  
+    const cartSummaryElement = document.getElementById('cart-summary');
     cartSummaryElement.textContent = `Cantidad de productos: ${totalQuantity}, Total a pagar: $${totalPrice.toFixed(2)}`;
   }
 
@@ -81,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function loadCart() {
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
-      cart.length = 0; // Vacía el carrito existente
-      cart.push(...JSON.parse(storedCart)); // Agrega los productos cargados desde localStorage
+      cart.length = 0; 
+      cart.push(...JSON.parse(storedCart)); 
       totalQuantity = cart.length;
       totalPrice = cart.reduce((total, product) => total + product.price, 0);
       updateCartUI();
@@ -91,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function checkout() {
     if (cart.length === 0) {
-      alert('El carrito está vacío. Agrega productos antes de finalizar la compra.');
+      Swal.fire('No hay productos en el carro :(');
       return;
     }
 
@@ -100,13 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     purchaseInfo.style.display = 'block';
 
-    // Simular una solicitud AJAX para procesar la compra
-    // Puedes enviar el carrito al servidor para el procesamiento y recibir una respuesta
-
-    // Luego de un exitoso proceso, guardar el carrito en localStorage antes de limpiarlo
     saveCart();
 
-    // Limpiar el carrito y actualizar la interfaz
     cart.length = 0;
     totalQuantity = 0;
     totalPrice = 0;
@@ -115,5 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   checkoutButton.addEventListener('click', checkout);
 });
+
 
 

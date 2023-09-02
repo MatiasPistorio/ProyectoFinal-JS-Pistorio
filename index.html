@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>Carrito de Compras</title>
 </head>
 <body>
-  <h1>Carrito de Compras</h1>
+  <h1>Compra PC</h1>
   
   <ul id="product-list"></ul>
   
@@ -15,11 +16,13 @@
   <ul id="cart"></ul>
   
   <button id="checkout">Realizar Compra</button>
-  
+  <div id="cart-summary"></div>
   <div id="purchase-info" style="display: none;">
     <h2>Información de la Compra</h2>
     <p id="purchase-details"></p>
+    </div>
   </div>
+  
 
   <script src="app.js"></script>
 </body>
